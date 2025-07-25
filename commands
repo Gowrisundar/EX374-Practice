@@ -1,0 +1,447 @@
+[student@workstation ~]$ git --version
+git version 2.31.1
+[student@workstation ~]$ sudo dnf install git -y
+[sudo] password for student: 
+Red Hat Ansible Automation Platform 2.2 for RHEL 8 x86_64 (RPMs)                3.3 MB/s | 486 kB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs) - Updates                 8.2 MB/s | 1.5 MB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs) - Updates               24 MB/s | 2.9 MB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                            15 MB/s | 2.4 MB     00:00    
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                         24 MB/s | 7.5 MB     00:00    
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[student@workstation ~]$ git--version
+bash: git--version: command not found...
+[student@workstation ~]$ git -v
+unknown option: -v
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+[student@workstation ~]$ git --v
+unknown option: --v
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+[student@workstation ~]$ git --version
+git version 2.31.1
+[student@workstation ~]$ git config --global user.name "Martin Louis"
+[student@workstation ~]$ git config --global user.email "martin@example.com"
+[student@workstation ~]$ git config --global push.default simple
+[student@workstation ~]$ git config -l
+user.name=Martin Louis
+user.email=martin@example.com
+push.default=simple
+[student@workstation ~]$ vim .vimrc
+[student@workstation ~]$ git clone git@github.com:Gowrisundar/create_user.git
+Cloning into 'create_user'...
+Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.
+ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/57853003 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:M8ikhcEDm2tQ95Z0o7ZvufqEixCFCt+wowZLNzNlBT0
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[student@workstation ~]$ git clone git@github.com:Gowrisundar/create_user.git
+Cloning into 'create_user'...
+ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/57853003 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:M8ikhcEDm2tQ95Z0o7ZvufqEixCFCt+wowZLNzNlBT0
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[student@workstation ~]$ git clone https://github.com/Gowrisundar/create_user.git
+Cloning into 'create_user'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 12 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (3/3), done.
+[student@workstation ~]$ ssh-keygen -o -t rsa -C “ssh@github.com”
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/student/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/student/.ssh/id_rsa.
+Your public key has been saved in /home/student/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Kwl3SvlI38tn2xpkNiAFO7nn3SMP9vlrp1d4HCNdvcw “ssh@github.com”
+The key's randomart image is:
++---[RSA 3072]----+
+|        ...     .|
+|         +      o|
+|        = .   + o|
+|       . + . . E |
+|    . = S . = .oo|
+|     = B = = o. +|
+|      = + o * o..|
+|       . . ooB +o|
+|          ooooB=+|
++----[SHA256]-----+
+[student@workstation ~]$ ls
+create_user  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+[student@workstation ~]$ ls .ssh
+config  gitlab_rsa  gitlab_rsa.pub  id_rsa  id_rsa.pub  known_hosts  lab_rsa  lab_rsa.pub
+[student@workstation ~]$ ls -lrt .ssh
+total 32
+-rw-------. 1 student student 1679 Sep 20  2021 lab_rsa
+-rw-r--r--. 1 student student  395 Sep 20  2021 lab_rsa.pub
+-rw-------. 1 student student  726 Dec 19  2022 gitlab_rsa.pub
+-rw-------. 1 student student 3357 Dec 19  2022 gitlab_rsa
+-rw-r--r--. 1 student student  200 Dec 19  2022 config
+-rw-r--r--. 1 student student  187 Jul 25 05:16 known_hosts
+-rw-r--r--. 1 student student  574 Jul 25 05:21 id_rsa.pub
+-rw-------. 1 student student 2610 Jul 25 05:21 id_rsa
+[student@workstation ~]$ cat .ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMlWimggqfpqnLjtHkacMaX+DhC/k15IGl4rEbhHQtsSifBSwEYfAQkZ+0NHh3KRnw0AN+u+ZPVSXiG5TUIFmoBSa8HMQRAQClRnmRLhF9ZmJLI7cdw3P+/cBr39obGHoYRI3uQ3Ci42HAsgEw0bk6z0pzEVq11+nzBLQY0bThubrXdm2z749pjgkcuyZkAgx1HtmsSOl92CrV7155LkbwLx+1fohitaT3TZjYymO4Q3OWfl5F/cP4TLY89fDCoA3NgZ8zt4ui1dlHjZaqfYFboRfIPwnw5Zia/cpMWyWqAeM8qeuNpWKaCHUqZRR7fPN2+NPFgqmTddeXvBmgHDw+OEnUd8fXbWaYF0R6HNGTFZe3nyjWpgiMd9y5LQjrXF8ow85gNZ45FHQCNurERTXO0peOMYchx3JF3QzLQg+N0JW4SCzpR//EyhtVof3Slg4WekwN+StItmMa4/0/AmOV09xZ/RUNOolsRfZC/xBalv69C+RSwCOdxp9Ug/Gxvhk= “ssh@github.com”
+[student@workstation ~]$ cd create_user/
+[student@workstation create_user]$ ls
+ansible.cfg  Inventory  user.yml
+[student@workstation create_user]$ vim user.yml
+[student@workstation create_user]$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   user.yml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[student@workstation create_user]$ git add user.yml 
+[student@workstation create_user]$ ls
+ansible.cfg  Inventory  user.yml
+[student@workstation create_user]$ vim ansible.cfg
+[student@workstation create_user]$ sudo dnf install ansible-navigator -y
+[sudo] password for student: 
+Last metadata expiration check: 0:23:58 ago on Fri 25 Jul 2025 05:04:08 AM UTC.
+Dependencies resolved.
+================================================================================================================
+ Package                   Arch   Version          Repository                                              Size
+================================================================================================================
+Installing:
+ ansible-navigator         noarch 2.1.0-1.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 390 k
+Installing dependencies:
+ ansible-builder           noarch 1.1.0-3.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  45 k
+ ansible-runner            noarch 2.2.1-1.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 8.4 k
+ python39-ansible-runner   noarch 2.2.1-1.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 124 k
+ python39-attrs            noarch 21.4.0-2.el8pc   ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  97 k
+ python39-bindep           noarch 2.10.2-3.el8ap   ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  58 k
+ python39-daemon           noarch 2.3.0-4.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  41 k
+ python39-distro           noarch 1.6.0-3.el8pc    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  34 k
+ python39-docutils         noarch 0.16-4.el8ap     ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 1.6 M
+ python39-importlib-metadata
+                           noarch 4.10.1-2.el8pc   ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  41 k
+ python39-jsonschema       noarch 4.6.0-1.el8pc    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 142 k
+ python39-lockfile         noarch 1:0.12.2-1.el8ap ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  37 k
+ python39-onigurumacffi    x86_64 1.1.0-2.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  24 k
+ python39-packaging        noarch 21.3-1.el8pc     ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  71 k
+ python39-parsley          noarch 1.3-2.el8pc      ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 176 k
+ python39-pbr              noarch 5.8.1-2.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 148 k
+ python39-pexpect          noarch 4.8.0-1.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 146 k
+ python39-ptyprocess       noarch 0.6.0-1.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  31 k
+ python39-pyparsing        noarch 2.4.7-1.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 157 k
+ python39-pyrsistent       x86_64 0.18.1-1.el8ap   ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms 112 k
+ python39-requirements-parser
+                           noarch 0.2.0-4.el8ap    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  20 k
+ python39-typing-extensions
+                           noarch 3.10.0.2-2.el8pc ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  53 k
+ python39-zipp             noarch 3.4.0-4.el8pc    ansible-automation-platform-2.2-for-rhel-8-x86_64-rpms  17 k
+
+Transaction Summary
+================================================================================================================
+Install  23 Packages
+
+Total download size: 3.5 M
+Installed size: 14 M
+Downloading Packages:
+(1/23): ansible-builder-1.1.0-3.el8ap.noarch.rpm                                2.1 MB/s |  45 kB     00:00    
+(2/23): ansible-runner-2.2.1-1.el8ap.noarch.rpm                                 311 kB/s | 8.4 kB     00:00    
+(3/23): ansible-navigator-2.1.0-1.el8ap.noarch.rpm                               10 MB/s | 390 kB     00:00    
+(4/23): python39-attrs-21.4.0-2.el8pc.noarch.rpm                                5.3 MB/s |  97 kB     00:00    
+(5/23): python39-ansible-runner-2.2.1-1.el8ap.noarch.rpm                        3.5 MB/s | 124 kB     00:00    
+(6/23): python39-daemon-2.3.0-4.el8ap.noarch.rpm                                2.6 MB/s |  41 kB     00:00    
+(7/23): python39-bindep-2.10.2-3.el8ap.noarch.rpm                               2.1 MB/s |  58 kB     00:00    
+(8/23): python39-distro-1.6.0-3.el8pc.noarch.rpm                                2.6 MB/s |  34 kB     00:00    
+(9/23): python39-importlib-metadata-4.10.1-2.el8pc.noarch.rpm                   3.3 MB/s |  41 kB     00:00    
+(10/23): python39-jsonschema-4.6.0-1.el8pc.noarch.rpm                           5.9 MB/s | 142 kB     00:00    
+(11/23): python39-lockfile-0.12.2-1.el8ap.noarch.rpm                            1.7 MB/s |  37 kB     00:00    
+(12/23): python39-onigurumacffi-1.1.0-2.el8ap.x86_64.rpm                        2.1 MB/s |  24 kB     00:00    
+(13/23): python39-packaging-21.3-1.el8pc.noarch.rpm                             7.2 MB/s |  71 kB     00:00    
+(14/23): python39-parsley-1.3-2.el8pc.noarch.rpm                                 11 MB/s | 176 kB     00:00    
+(15/23): python39-docutils-0.16-4.el8ap.noarch.rpm                               18 MB/s | 1.6 MB     00:00    
+(16/23): python39-pbr-5.8.1-2.el8ap.noarch.rpm                                  2.3 MB/s | 148 kB     00:00    
+(17/23): python39-ptyprocess-0.6.0-1.el8ap.noarch.rpm                           811 kB/s |  31 kB     00:00    
+(18/23): python39-pexpect-4.8.0-1.el8ap.noarch.rpm                              1.9 MB/s | 146 kB     00:00    
+(19/23): python39-pyparsing-2.4.7-1.el8ap.noarch.rpm                            5.1 MB/s | 157 kB     00:00    
+(20/23): python39-requirements-parser-0.2.0-4.el8ap.noarch.rpm                  1.5 MB/s |  20 kB     00:00    
+(21/23): python39-pyrsistent-0.18.1-1.el8ap.x86_64.rpm                          4.1 MB/s | 112 kB     00:00    
+(22/23): python39-typing-extensions-3.10.0.2-2.el8pc.noarch.rpm                 2.6 MB/s |  53 kB     00:00    
+(23/23): python39-zipp-3.4.0-4.el8pc.noarch.rpm                                 944 kB/s |  17 kB     00:00    
+----------------------------------------------------------------------------------------------------------------
+Total                                                                            15 MB/s | 3.5 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                        1/1 
+  Installing       : python39-zipp-3.4.0-4.el8pc.noarch                                                    1/23 
+  Installing       : python39-typing-extensions-3.10.0.2-2.el8pc.noarch                                    2/23 
+  Installing       : python39-importlib-metadata-4.10.1-2.el8pc.noarch                                     3/23 
+  Installing       : python39-requirements-parser-0.2.0-4.el8ap.noarch                                     4/23 
+  Installing       : python39-pyrsistent-0.18.1-1.el8ap.x86_64                                             5/23 
+  Installing       : python39-pyparsing-2.4.7-1.el8ap.noarch                                               6/23 
+  Installing       : python39-packaging-21.3-1.el8pc.noarch                                                7/23 
+  Installing       : python39-ptyprocess-0.6.0-1.el8ap.noarch                                              8/23 
+  Installing       : python39-pexpect-4.8.0-1.el8ap.noarch                                                 9/23 
+  Installing       : python39-pbr-5.8.1-2.el8ap.noarch                                                    10/23 
+  Installing       : python39-parsley-1.3-2.el8pc.noarch                                                  11/23 
+  Installing       : python39-onigurumacffi-1.1.0-2.el8ap.x86_64                                          12/23 
+  Installing       : python39-lockfile-1:0.12.2-1.el8ap.noarch                                            13/23 
+  Installing       : python39-docutils-0.16-4.el8ap.noarch                                                14/23 
+  Installing       : python39-daemon-2.3.0-4.el8ap.noarch                                                 15/23 
+  Installing       : python39-ansible-runner-2.2.1-1.el8ap.noarch                                         16/23 
+  Installing       : ansible-runner-2.2.1-1.el8ap.noarch                                                  17/23 
+  Installing       : python39-distro-1.6.0-3.el8pc.noarch                                                 18/23 
+  Installing       : python39-bindep-2.10.2-3.el8ap.noarch                                                19/23 
+  Installing       : ansible-builder-1.1.0-3.el8ap.noarch                                                 20/23 
+  Installing       : python39-attrs-21.4.0-2.el8pc.noarch                                                 21/23 
+  Installing       : python39-jsonschema-4.6.0-1.el8pc.noarch                                             22/23 
+  Installing       : ansible-navigator-2.1.0-1.el8ap.noarch                                               23/23 
+  Running scriptlet: ansible-navigator-2.1.0-1.el8ap.noarch                                               23/23 
+  Verifying        : ansible-builder-1.1.0-3.el8ap.noarch                                                  1/23 
+  Verifying        : ansible-navigator-2.1.0-1.el8ap.noarch                                                2/23 
+  Verifying        : ansible-runner-2.2.1-1.el8ap.noarch                                                   3/23 
+  Verifying        : python39-ansible-runner-2.2.1-1.el8ap.noarch                                          4/23 
+  Verifying        : python39-attrs-21.4.0-2.el8pc.noarch                                                  5/23 
+  Verifying        : python39-bindep-2.10.2-3.el8ap.noarch                                                 6/23 
+  Verifying        : python39-daemon-2.3.0-4.el8ap.noarch                                                  7/23 
+  Verifying        : python39-distro-1.6.0-3.el8pc.noarch                                                  8/23 
+  Verifying        : python39-docutils-0.16-4.el8ap.noarch                                                 9/23 
+  Verifying        : python39-importlib-metadata-4.10.1-2.el8pc.noarch                                    10/23 
+  Verifying        : python39-jsonschema-4.6.0-1.el8pc.noarch                                             11/23 
+  Verifying        : python39-lockfile-1:0.12.2-1.el8ap.noarch                                            12/23 
+  Verifying        : python39-onigurumacffi-1.1.0-2.el8ap.x86_64                                          13/23 
+  Verifying        : python39-packaging-21.3-1.el8pc.noarch                                               14/23 
+  Verifying        : python39-parsley-1.3-2.el8pc.noarch                                                  15/23 
+  Verifying        : python39-pbr-5.8.1-2.el8ap.noarch                                                    16/23 
+  Verifying        : python39-pexpect-4.8.0-1.el8ap.noarch                                                17/23 
+  Verifying        : python39-ptyprocess-0.6.0-1.el8ap.noarch                                             18/23 
+  Verifying        : python39-pyparsing-2.4.7-1.el8ap.noarch                                              19/23 
+  Verifying        : python39-pyrsistent-0.18.1-1.el8ap.x86_64                                            20/23 
+  Verifying        : python39-requirements-parser-0.2.0-4.el8ap.noarch                                    21/23 
+  Verifying        : python39-typing-extensions-3.10.0.2-2.el8pc.noarch                                   22/23 
+  Verifying        : python39-zipp-3.4.0-4.el8pc.noarch                                                   23/23 
+
+Installed:
+  ansible-builder-1.1.0-3.el8ap.noarch                   ansible-navigator-2.1.0-1.el8ap.noarch                 
+  ansible-runner-2.2.1-1.el8ap.noarch                    python39-ansible-runner-2.2.1-1.el8ap.noarch           
+  python39-attrs-21.4.0-2.el8pc.noarch                   python39-bindep-2.10.2-3.el8ap.noarch                  
+  python39-daemon-2.3.0-4.el8ap.noarch                   python39-distro-1.6.0-3.el8pc.noarch                   
+  python39-docutils-0.16-4.el8ap.noarch                  python39-importlib-metadata-4.10.1-2.el8pc.noarch      
+  python39-jsonschema-4.6.0-1.el8pc.noarch               python39-lockfile-1:0.12.2-1.el8ap.noarch              
+  python39-onigurumacffi-1.1.0-2.el8ap.x86_64            python39-packaging-21.3-1.el8pc.noarch                 
+  python39-parsley-1.3-2.el8pc.noarch                    python39-pbr-5.8.1-2.el8ap.noarch                      
+  python39-pexpect-4.8.0-1.el8ap.noarch                  python39-ptyprocess-0.6.0-1.el8ap.noarch               
+  python39-pyparsing-2.4.7-1.el8ap.noarch                python39-pyrsistent-0.18.1-1.el8ap.x86_64              
+  python39-requirements-parser-0.2.0-4.el8ap.noarch      python39-typing-extensions-3.10.0.2-2.el8pc.noarch     
+  python39-zipp-3.4.0-4.el8pc.noarch                    
+
+Complete!
+[student@workstation create_user]$ ansible-navigator run user.yml --eei ee-supported-rhel8 --pae=false --pp=missing -m stdout
+------------------------------------------------------------
+Execution environment image and pull policy overview
+------------------------------------------------------------
+Execution environment image name:     ee-supported-rhel8:latest
+Execution environment image tag:      latest
+Execution environment pull arguments: None
+Execution environment pull policy:    missing
+Execution environment pull needed:    True
+------------------------------------------------------------
+Updating the execution environment
+------------------------------------------------------------
+Running the command: podman pull ee-supported-rhel8:latest
+Resolving "ee-supported-rhel8" using unqualified-search registries (/etc/containers/registries.conf)
+Trying to pull hub.lab.example.com/ee-supported-rhel8:latest...
+Error: initializing source docker://hub.lab.example.com/ee-supported-rhel8:latest: reading manifest latest in hub.lab.example.com/ee-supported-rhel8: errors:
+denied: requested access to the resource is denied
+unauthorized: Insufficient permissions
+
+  Error: Execution environment pull failed
+   Hint: Check the execution environment image name, connectivity to and
+         permissions for the registry, and try again
+[student@workstation create_user]$ podman login -uadmin -predhat hub.lab.example.com
+Login Succeeded!
+[student@workstation create_user]$ ansible-navigator run user.yml --eei ee-supported-rhel8 --pae=false --pp=missing -m stdout
+------------------------------------------------------------
+Execution environment image and pull policy overview
+------------------------------------------------------------
+Execution environment image name:     ee-supported-rhel8:latest
+Execution environment image tag:      latest
+Execution environment pull arguments: None
+Execution environment pull policy:    missing
+Execution environment pull needed:    True
+------------------------------------------------------------
+Updating the execution environment
+------------------------------------------------------------
+Running the command: podman pull ee-supported-rhel8:latest
+Resolving "ee-supported-rhel8" using unqualified-search registries (/etc/containers/registries.conf)
+Trying to pull hub.lab.example.com/ee-supported-rhel8:latest...
+Getting image source signatures
+Copying blob afea8ac1fb6f done  
+Copying blob ac278321f2bd done  
+Copying blob 85461b6812d9 done  
+Copying blob 431069e2d54d done  
+Copying blob 1e8637dd83cb done  
+Copying config b1eaaee1b7 done  
+Writing manifest to image destination
+Storing signatures
+b1eaaee1b70ed29a40dc3848a6a75119bee65e11c82f54bd7c600f226284e136
+
+PLAY [user creation play] **************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************
+ok: [serverc]
+
+TASK [user creation task] **************************************************************************************
+fatal: [serverc]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/passwd; try again later.\n", "name": "john", "rc": 1}
+
+PLAY RECAP *****************************************************************************************************
+serverc                    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+Please review the log for errors.
+[student@workstation create_user]$ ls
+ansible.cfg  ansible-navigator.log  Inventory  user.yml
+[student@workstation create_user]$ vim user.yml
+[student@workstation create_user]$ ansible-navigator run user.yml --eei ee-supported-rhel8 --pae=false --pp=missing -m stdout
+
+PLAY [user creation play] **************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************
+ok: [serverc]
+
+TASK [user creation task] **************************************************************************************
+changed: [serverc]
+
+PLAY RECAP *****************************************************************************************************
+serverc                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[student@workstation create_user]$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   user.yml
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ansible.cfg
+	modified:   user.yml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	ansible-navigator.log
+
+[student@workstation create_user]$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   user.yml
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ansible.cfg
+	modified:   user.yml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	ansible-navigator.log
+
+[student@workstation create_user]$ ll
+total 16
+-rw-rw-r--. 1 student student  65 Jul 25 05:27 ansible.cfg
+-rw-rw-r--. 1 student student 449 Jul 25 05:31 ansible-navigator.log
+-rw-rw-r--. 1 student student  14 Jul 25 05:18 Inventory
+-rw-rw-r--. 1 student student 201 Jul 25 05:31 user.yml
+[student@workstation create_user]$ vim .gitignore
+[student@workstation create_user]$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   user.yml
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ansible.cfg
+	modified:   user.yml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+[student@workstation create_user]$ git add *
+The following paths are ignored by one of your .gitignore files:
+ansible-navigator.log
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[student@workstation create_user]$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   ansible.cfg
+	modified:   user.yml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+[student@workstation create_user]$ git add .gitignore 
+[student@workstation create_user]$ git commit -m "Initial commit"
+[main 00e1d66] Initial commit
+ 3 files changed, 5 insertions(+), 2 deletions(-)
+ create mode 100644 .gitignore
+[student@workstation create_user]$ git push
+Username for 'https://github.com': gowrisundar 
+Password for 'https://gowrisundar@github.com': 
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/Gowrisundar/create_user.git/'
+[student@workstation create_user]$ cd ..
+[student@workstation ~]$ cd .ssh
+[student@workstation .ssh]$ ls
+config  gitlab_rsa  gitlab_rsa.pub  id_rsa  id_rsa.pub  known_hosts  lab_rsa  lab_rsa.pub
+[student@workstation .ssh]$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMlWimggqfpqnLjtHkacMaX+DhC/k15IGl4rEbhHQtsSifBSwEYfAQkZ+0NHh3KRnw0AN+u+ZPVSXiG5TUIFmoBSa8HMQRAQClRnmRLhF9ZmJLI7cdw3P+/cBr39obGHoYRI3uQ3Ci42HAsgEw0bk6z0pzEVq11+nzBLQY0bThubrXdm2z749pjgkcuyZkAgx1HtmsSOl92CrV7155LkbwLx+1fohitaT3TZjYymO4Q3OWfl5F/cP4TLY89fDCoA3NgZ8zt4ui1dlHjZaqfYFboRfIPwnw5Zia/cpMWyWqAeM8qeuNpWKaCHUqZRR7fPN2+NPFgqmTddeXvBmgHDw+OEnUd8fXbWaYF0R6HNGTFZe3nyjWpgiMd9y5LQjrXF8ow85gNZ45FHQCNurERTXO0peOMYchx3JF3QzLQg+N0JW4SCzpR//EyhtVof3Slg4WekwN+StItmMa4/0/AmOV09xZ/RUNOolsRfZC/xBalv69C+RSwCOdxp9Ug/Gxvhk= “ssh@github.com”
+[student@workstation .ssh]$ xclip -sel c < id_rsa.pub
+bash: xclip: command not found...
+[student@workstation .ssh]$ pbcopy < ~/.ssh/id_rsa.pub
+bash: pbcopy: command not found...
+[student@workstation .ssh]$ 
