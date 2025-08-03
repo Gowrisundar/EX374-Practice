@@ -1,0 +1,17 @@
+[defaults]
+inventory=~/inventory
+collections_paths=collections:/usr/share/ansible/collections:~/.collections
+remote_user=devops
+ask_pass=false
+ 
+[galaxy]
+server_list = rh-certified_repo, published_repo
+ 
+[galaxy_server.rh-certified_repo]
+url=https://hub.lab.example.com/api/galaxy/content/rh-certified/
+token=087f7307454e5a061629c19aef81939ce427c621
+ 
+ 
+[galaxy_server.published_repo]
+url=https://hub.lab.example.com/api/galaxy/content/published/
+token=087f7307454e5a061629c19aef81939ce427c621
