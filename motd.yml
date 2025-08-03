@@ -1,0 +1,6 @@
+---
+- name: user role play
+  hosts: dev
+  become: true
+  roles:
+    - rhel.user.motd
